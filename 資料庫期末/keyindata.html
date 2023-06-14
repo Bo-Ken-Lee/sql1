@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--script-->
+    <script src="../javascript/upload_check.js"></script>
+    <!-- <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script> -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+</head>
+
+<body>
+    <!--資料-->
+    <div class="container">
+
+
+
+
+        <div id="main_page">
+            <div id="comic_container">
+                <center><br>
+                    <h2>輸入入庫貨物資料或是更新資料</h2>
+                    <input placeholder="請輸入地區名稱" type="text" id="area">
+                    <input placeholder="請輸入商品名稱(headphones)" type="text" id="goods">
+                    <input placeholder="請輸入入庫貨物數量" type="text" id="stock">
+                    <br>
+                    <button type="button" onclick="fun()">輸入</button>
+                </center>
+            </div>
+        </div>
+
+        <script>
+            function fun() {
+                var area = document.getElementById("area").value;
+                var goods = document.getElementById("goods").value;
+                var stock = document.getElementById("stock").value;
+                //測試此帳號是否以上傳過
+                $.ajax({
+                    //告訴程式表單要傳送到哪裡                                         
+                    url: "./php/keyindata.php",
+                    //需要傳送的資料 
+                    data: {area:area ,goods: goods, stock:stock},
+                    //使用POST方法     
+                    type: "POST",
+                    //接收回傳資料的格式，在這個例子中，只要是接收true就可以了
+                    dataType: 'text',
+                    //傳送失敗則跳出失敗訊息      
+                    error: function () {
+                        3
+                        //資料傳送失敗後就會執行這個function內的程式，可以在這裡寫入要執行的程式  
+                        alert("失敗");
+                    },
+                    //傳送成功則跳出成功訊息
+                    success: function (data) {
+                        alert(data);
+                        // //資料傳送成功後就會執行這個function內的程式，可以在這裡寫入要執行的程式  
+                        // document.getElementById("thetop").innerHTML = "<h1>" + data + "</h1>";
+                        // alert(data);
+                    }
+                });
+            }
+        </script>
+
+    </div>
+</body>
+
+</html>

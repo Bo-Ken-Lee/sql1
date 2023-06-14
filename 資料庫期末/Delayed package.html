@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--script-->
+    <script src="../javascript/upload_check.js"></script>
+    <!-- <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script> -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+</head>
+
+<body>
+    <!--資料-->
+    <div class="container">
+
+
+
+
+        <div id="main_page">
+            <div id="comic_container">
+                <center><br>
+                    <h2>列出逾期的商品</h2>
+                    <img alt="" src="./pic/010.png" width="75px" height="60" />
+                    <span id="thetop"></span>
+                </center>
+            </div>
+        </div>
+
+        <script>
+            //測試此帳號是否以上傳過
+            var ggg;
+            $.ajax({
+                //告訴程式表單要傳送到哪裡                                         
+                url: "./php/Delayed package.php",
+                //需要傳送的資料
+                data: "&ggg=" + ggg,
+                //使用POST方法     
+                type: "POST",
+                //接收回傳資料的格式，在這個例子中，只要是接收true就可以了
+                dataType: 'text',
+                //傳送失敗則跳出失敗訊息      
+                error: function () {
+                    //資料傳送失敗後就會執行這個function內的程式，可以在這裡寫入要執行的程式  
+                    alert("失敗");
+                },
+                //傳送成功則跳出成功訊息
+                success: function (data) {
+                    //資料傳送成功後就會執行這個function內的程式，可以在這裡寫入要執行的程式  
+                    document.getElementById("thetop").innerHTML = "<h1>" + data + "</h1>";
+                    // alert(data);
+
+                }
+            });
+
+
+
+        </script>
+
+    </div>
+</body>
+
+</html>

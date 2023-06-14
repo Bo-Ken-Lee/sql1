@@ -1,0 +1,291 @@
+<!DOCTYPE>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+  .demo {
+    background-color: #999;
+    width: 90px;
+    height: 90px;
+    display: inline-block;
+    margin: 40px;
+    position: relative;
+    z-index: 3;
+  }
+
+  .demo::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border: 2px solid red;
+    margin: -5px;
+    z-index: -1;
+  }
+
+  .demo::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border: 2px solid yellow;
+    margin: -5px;
+    z-index: -1;
+  }
+
+
+  .demo::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border: 2px solid blue;
+    margin: -5px;
+    z-index: -1;
+  }
+
+  .demo::before {
+    -webkit-animation: lineA 4s linear infinite;
+    animation: lineA 4s linear infinite;
+  }
+
+  @-webkit-keyframes lineA {
+
+    0%,
+    100% {
+      clip: rect(0, 100px, 2px, 0)
+    }
+
+    25% {
+      clip: rect(0, 2px, 100px, 0)
+    }
+
+    50% {
+      clip: rect(98px, 100px, 100px, 0)
+    }
+
+    75% {
+      clip: rect(0, 100px, 100px, 98px)
+    }
+  }
+
+  @keyframes lineA {
+
+    0%,
+    100% {
+      clip: rect(0, 100px, 2px, 0)
+    }
+
+    25% {
+      clip: rect(0, 2px, 100px, 0)
+    }
+
+    50% {
+      clip: rect(98px, 100px, 100px, 0)
+    }
+
+    75% {
+      clip: rect(0, 100px, 100px, 98px)
+    }
+  }
+
+
+  #box,
+  #content {
+    width: 200px;
+    height: 100px;
+    position: relative;
+    /* 	background-color:#333; */
+    overflow: hidden;
+  }
+
+  #box:before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 2px;
+    top: 0;
+    transform: translateX(-100%);
+    z-index: 3;
+    background: -webkit-repeating-linear-gradient(0deg, red 0, red 3px, rgba(0, 0, 0, 0) 3px, rgba(0, 0, 0, 0) 6px);
+    animation: out-right linear 16s infinite;
+  }
+
+  #box:after {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 2px;
+    bottom: 0;
+    z-index: 3;
+    background: -webkit-repeating-linear-gradient(0deg, red 0, red 3px, rgba(0, 0, 0, 0) 3px, rgba(0, 0, 0, 0) 6px);
+    animation: out-left linear 16s infinite;
+  }
+
+  @-webkit-keyframes out-right {
+    from {
+      transform: translateX(-50%);
+    }
+
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @-webkit-keyframes out-left {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  #content:before {
+    content: "";
+    position: absolute;
+    height: 200%;
+    width: 2px;
+    right: 0;
+    top: 0;
+    transform: translateY(-50%);
+    z-index: 3;
+    background: -webkit-repeating-linear-gradient(90deg, red 0, red 3px, rgba(0, 0, 0, 0) 3px, rgba(0, 0, 0, 0) 6px);
+    animation: out-down linear 16s infinite;
+  }
+
+  #content:after {
+    content: "";
+    position: absolute;
+    height: 200%;
+    width: 2px;
+    left: 0;
+    z-index: 3;
+    background: -webkit-repeating-linear-gradient(90deg, red 0, red 3px, rgba(0, 0, 0, 0) 3px, rgba(0, 0, 0, 0) 6px);
+    animation: out-up linear 16s infinite;
+  }
+
+  @-webkit-keyframes out-down {
+    from {
+      transform: translateY(-50%);
+    }
+
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @-webkit-keyframes out-up {
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(-50%);
+    }
+  }
+</style>
+
+<title>觀光景點</title>
+<meat charest="utf-8">
+  </head>
+
+  <body class=bg7 style="cursor:not-allowed;" bgcolor="#F9F7F0">
+    <div style="width:59%;height: 40%;  margin:0px auto;background-color:#18B7BE">
+      <table border="0" cellpadding="25%" cellspacing="0" style="width: 100%;">
+        <tbody>
+          <tr>
+            <td style="height:100px">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20%" height="65%" fill="currentColor"
+                class="bi bi-sort-down" viewBox="0 0 16 16">
+                <path
+                  d="M3.5 2.5a.5.5 0 0 0-1 0v8.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L3.5 11.293V2.5zm3.5 1a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zM7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z" />
+              </svg>
+              <a target="1" href="./top_coin.html">
+                <!-- <h5>找到最近一年購買</h5>
+                <h5>總金額最多的客戶</h5> -->
+                <!-- <h5>The most this year</h5> -->
+                <h5>最近一年購買總金額最多的客戶</h5>
+              </a>　
+            </td>
+            <td>　<img alt="" src="./pic/002.png" width="75px" height="60" /><a target="1"
+                href="./toptwo_product.html">
+                <!-- <h5>找到過去一年按銷售金</h5>
+                <h5>額計算的前兩個產品</h5> -->
+                <h5>銷售金額前兩名產品</h5>
+              </a>　</td>
+            <td>　<img alt="" src="./pic/003.jpg" width="100px" height="60" /><a target="1"
+                href="./Out_of_stock.html">
+                <!-- <h5>找到所有在高雄的</h5>
+                <h5>商店都缺貨的商品</h5> -->
+                <h5>各地區的商店都缺貨的商品</h5>
+              </a>　</td>
+            <td>　<img alt="" src="./pic/004.jpg" width="110px" height="60" /><a target="1"
+                href="./Delayed package.html">
+                <!-- <h5>找到所有在高雄的</h5>
+                <h5>商店都缺貨的商品</h5> -->
+                <h5>未按照承諾時間交費的包裹</h5>
+              </a>　</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+      <table border="0" cellpadding="25%" cellspacing="0" style="width: 100%;">
+        <tbody>
+          <tr>
+            <td>　<img alt="" src="./pic/005.jpg" width="140px" height="60" /><a target="1" href="./find_the_package.html">
+                <!-- <h5>找到所有在高雄的</h5>
+                <h5>商店都缺貨的商品</h5> -->
+                <h5>特定跟踪號包全部信息</h5>
+              </a></td>
+
+            <td>　
+              <svg xmlns="http://www.w3.org/2000/svg" width="75px" height="60" fill="currentColor"
+                class="bi bi-building-fill-add" viewBox="0 0 16 16">
+                <path
+                  d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Z" />
+                <path
+                  d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7.256A4.493 4.493 0 0 0 12.5 8a4.493 4.493 0 0 0-3.59 1.787A.498.498 0 0 0 9 9.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .39-.187A4.476 4.476 0 0 0 8.027 12H6.5a.5.5 0 0 0-.5.5V16H3a1 1 0 0 1-1-1V1Zm2 1.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5Zm3 0v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5Zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1ZM4 5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5ZM7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm2.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5ZM4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Z" />
+              </svg>
+              <a target="1" href="./check_stock.html">
+                <h5>檢查庫存</h5>
+              </a>　
+            </td>
+            <td>　<img alt="" src="./pic/006.jpg" width="110px" height="70" /><a target="1"
+                href="./input_cellphone_oder.html">
+                <h5>輸入電話訂單</h5>
+                <!-- <h5>商店都缺貨的商品</h5> -->
+              </a>　</td>
+            <td>　<img alt="" src="./pic/007.jpg" width="110px" height="70" /><a target="1"
+                href="./keyindata.html">
+                <h5>登記入庫貨物</h5>
+                <!-- <h5>商店都缺貨的商品</h5> -->
+              </a>　</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <img alt="" src="./pic/008.jpg" width="20.5%" height="700" />
+    <iframe name="1" width="58.5%" height="700" style="border-style:none;">
+
+    </iframe>
+
+    <img alt="" src="./pic/009.jpg" width="20%" height="700" />
+  </body>
+
+
+</html>
